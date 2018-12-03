@@ -11,7 +11,11 @@ MacOSXに最初から入っているコマンドを使い、1024x1024（また�
 
 https://github.com/hibara/create-ios-all-icons-shellscript/blob/master/create_ios_and_android_icons.command
 
-Added Shell Script that generates even Android icons with the iOS app icons.
+Added Shell Script that generates even Android icons with the iOS app icons.  
+
+## Adaptive icon  
+
+アダプティブアイコン用のサイズも生成できるように拡張しました。  
 
 
 # When that does not work...
@@ -30,4 +34,3 @@ For example, input command from the console as follows.
 ```sh
 $ chmod a+x create_ios_icons.command
 ```
-
