@@ -287,3 +287,69 @@ cp -fv "${outdir}/icon_48x48.png" "${androiddir}/icon.png"
 androiddir="${outdir}/drawable-ldpi"
 mkdir -m a+w -pv $androiddir
 cp -fv "${outdir}/icon_36x36.png" "${androiddir}/icon.png"
+#======================================================================
+# Adaptive icon
+#======================================================================
+
+# 出力ディレクトリの生成
+outdir="Adaptive"
+mkdir -p $outdir
+
+# xxxhdpi(〜640dpi)
+if [ -e "${outdir}/ic_launcher_432x432.png" ]; then
+    echo "ic_launcher_432x432.png はすでに存在しています。\n"
+else
+    sips -Z 432 ${BASE_FILE} --out ${outdir}/ic_launcher_432x432.png
+fi
+
+# xxhdpi(〜480dpi)
+if [ -e "${outdir}/ic_launcher_324x324.png" ]; then
+    echo "ic_launcher_324x324.png はすでに存在しています。\n"
+else
+    sips -Z 324 ${BASE_FILE} --out ${outdir}/ic_launcher_324x324.png
+fi
+
+# xhdpi(〜320dpi)
+if [ -e "${outdir}/ic_launcher_216x216.png" ]; then
+    echo "ic_launcher_216x216.png はすでに存在しています。\n"
+else
+    sips -Z 216 ${BASE_FILE} --out ${outdir}/ic_launcher_216x216.png
+fi
+
+# hdpi(〜240dpi)
+if [ -e "${outdir}/ic_launcher_162x162.png" ]; then
+    echo "ic_launcher_162x162.png はすでに存在しています。\n"
+else
+    sips -Z 162 ${BASE_FILE} --out ${outdir}/ic_launcher_162x162.png
+fi
+
+# mdpi(〜160dpi)
+if [ -e "${outdir}/ic_launcher_108x108.png" ]; then
+    echo "ic_launcher_108x108.png はすでに存在しています。\n"
+else
+    sips -Z 108 ${BASE_FILE} --out ${outdir}/ic_launcher_108x108.png
+fi
+
+#-----------------------------------
+# 生成した各サイズのアイコンを一括リネーム
+#-----------------------------------
+
+androiddir="${outdir}/drawable-xxxhdpi"
+mkdir -m a+w -pv $androiddir
+cp -fv "${outdir}/ic_launcher_432x432.png" "${androiddir}/ic_launcher.png"
+
+androiddir="${outdir}/drawable-xxhdpi"
+mkdir -m a+w -pv $androiddir
+cp -fv "${outdir}/ic_launcher_324x324.png" "${androiddir}/ic_launcher.png"
+
+androiddir="${outdir}/drawable-xhdpi"
+mkdir -m a+w -pv $androiddir
+cp -fv "${outdir}/ic_launcher_216x216.png" "${androiddir}/ic_launcher.png"
+
+androiddir="${outdir}/drawable-hdpi"
+mkdir -m a+w -pv $androiddir
+cp -fv "${outdir}/ic_launcher_162x162.png" "${androiddir}/ic_launcher.png"
+
+androiddir="${outdir}/drawable-mdpi"
+mkdir -m a+w -pv $androiddir
+cp -fv "${outdir}/ic_launcher_108x108.png" "${androiddir}/ic_launcher.png"
