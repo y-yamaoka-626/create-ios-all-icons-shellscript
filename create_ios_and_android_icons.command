@@ -219,45 +219,45 @@ outdir="Android"
 mkdir -p $outdir
 
 # xxxhdpi(〜640dpi)
-if [ -e "${outdir}/icon_192x192.png" ]; then
-    echo "icon_192x192.png はすでに存在しています。\n"
+if [ -e "${outdir}/ic_launcher_192x192.png" ]; then
+    echo "ic_launcher_192x192.png はすでに存在しています。\n"
 else
-    sips -Z 192 ${BASE_FILE} --out ${outdir}/icon_192x192.png
+    sips -Z 192 ${BASE_FILE} --out ${outdir}/ic_launcher_192x192.png
 fi
 
 # xxhdpi(〜480dpi)
-if [ -e "${outdir}/icon_144x144.png" ]; then
-    echo "icon_144x144.png はすでに存在しています。\n"
+if [ -e "${outdir}/ic_launcher_144x144.png" ]; then
+    echo "ic_launcher_144x144.png はすでに存在しています。\n"
 else
-    sips -Z 144 ${BASE_FILE} --out ${outdir}/icon_144x144.png
+    sips -Z 144 ${BASE_FILE} --out ${outdir}/ic_launcher_144x144.png
 fi
 
 # xhdpi(〜320dpi)
-if [ -e "${outdir}/icon_96x96.png" ]; then
-    echo "icon_96x96.png はすでに存在しています。\n"
+if [ -e "${outdir}/ic_launcher_96x96.png" ]; then
+    echo "ic_launcher_96x96.png はすでに存在しています。\n"
 else
-    sips -Z 96 ${outdir}/icon_192x192.png --out ${outdir}/icon_96x96.png
+    sips -Z 96 ${outdir}/ic_launcher_192x192.png --out ${outdir}/ic_launcher_96x96.png
 fi
 
 # hdpi(〜240dpi)
-if [ -e "${outdir}/icon_72x72.png" ]; then
-    echo "icon_72x72.png はすでに存在しています。\n"
+if [ -e "${outdir}/ic_launcher_72x72.png" ]; then
+    echo "ic_launcher_72x72.png はすでに存在しています。\n"
 else
-    sips -Z 72 ${outdir}/icon_144x144.png --out ${outdir}/icon_72x72.png
+    sips -Z 72 ${outdir}/ic_launcher_144x144.png --out ${outdir}/ic_launcher_72x72.png
 fi
 
 # mdpi(〜160dpi)
-if [ -e "${outdir}/icon_48x48.png" ]; then
-    echo "icon_48x48.png はすでに存在しています。\n"
+if [ -e "${outdir}/ic_launcher_48x48.png" ]; then
+    echo "ic_launcher_48x48.png はすでに存在しています。\n"
 else
-    sips -Z 48 ${outdir}/icon_144x144.png --out ${outdir}/icon_48x48.png
+    sips -Z 48 ${outdir}/ic_launcher_144x144.png --out ${outdir}/ic_launcher_48x48.png
 fi
 
 # ldpi(〜120dpi)
-if [ -e "${outdir}/icon_36x36.png" ]; then
-    echo "icon_36x36.png はすでに存在しています。\n"
+if [ -e "${outdir}/ic_launcher_36x36.png" ]; then
+    echo "ic_launcher_36x36.png はすでに存在しています。\n"
 else
-    sips -Z 36 ${outdir}/icon_72x72.png --out ${outdir}/icon_36x36.png
+    sips -Z 36 ${outdir}/ic_launcher_72x72.png --out ${outdir}/ic_launcher_36x36.png
 fi
 
 #-----------------------------------
@@ -266,27 +266,28 @@ fi
 
 androiddir="${outdir}/drawable-xxxhdpi"
 mkdir -m a+w -pv $androiddir
-cp -fv "${outdir}/icon_192x192.png" "${androiddir}/icon.png"
+cp -fv "${outdir}/ic_launcher_192x192.png" "${androiddir}/ic_launcher.png"
 
 androiddir="${outdir}/drawable-xxhdpi"
 mkdir -m a+w -pv $androiddir
-cp -fv "${outdir}/icon_144x144.png" "${androiddir}/icon.png"
+cp -fv "${outdir}/ic_launcher_144x144.png" "${androiddir}/ic_launcher.png"
 
 androiddir="${outdir}/drawable-xhdpi"
 mkdir -m a+w -pv $androiddir
-cp -fv "${outdir}/icon_96x96.png" "${androiddir}/icon.png"
+cp -fv "${outdir}/ic_launcher_96x96.png" "${androiddir}/ic_launcher.png"
 
 androiddir="${outdir}/drawable-hdpi"
 mkdir -m a+w -pv $androiddir
-cp -fv "${outdir}/icon_72x72.png" "${androiddir}/icon.png"
+cp -fv "${outdir}/ic_launcher_72x72.png" "${androiddir}/ic_launcher.png"
 
 androiddir="${outdir}/drawable-mdpi"
 mkdir -m a+w -pv $androiddir
-cp -fv "${outdir}/icon_48x48.png" "${androiddir}/icon.png"
+cp -fv "${outdir}/ic_launcher_48x48.png" "${androiddir}/ic_launcher.png"
 
 androiddir="${outdir}/drawable-ldpi"
 mkdir -m a+w -pv $androiddir
-cp -fv "${outdir}/icon_36x36.png" "${androiddir}/icon.png"
+cp -fv "${outdir}/ic_launcher_36x36.png" "${androiddir}/ic_launcher.png"
+
 #======================================================================
 # Adaptive icon
 #======================================================================
